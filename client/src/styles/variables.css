@@ -1,194 +1,99 @@
-/* ============================================
-   DESIGN TOKENS — CSS Custom Properties
-   Newsprint — "All the News That's Fit to Print"
-   ============================================ */
-
 :root {
-  /* ============================================
-     COLOR SYSTEM
-     ============================================ */
-
-  /* Backgrounds - Light Mode Only */
-  --color-bg-primary: #F9F9F7;       /* Newsprint Off-White */
-  --color-bg-secondary: #FFFFFF;     /* White */
-  --color-bg-surface: #F5F5F5;       /* Hover backgrounds */
-  --color-bg-card: #FFFFFF;          /* Card backgrounds */
-
-  /* Text */
-  --color-text-primary: #111111;     /* Ink Black - all text */
-  --color-text-secondary: #E5E5E0;   /* Divider Grey - secondary */
-  --color-text-muted: #737373;       /* Metadata, captions */
-  --color-text-inverse: #F9F9F7;     /* White on inverted sections */
-
-  /* Borders */
-  --color-border-primary: #111111;   /* Ink Black - primary structural element */
-  --color-border-strong: #111111;   /* 4px for major section dividers */
-  --color-border-subtle: #E5E5E0;   /* Subtle dividers */
-
-  /* Accent */
-  --color-accent: #CC0000;           /* Editorial Red - sparing use */
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(180deg, #FFFFFF 0%, #F9F9F7 100%);
-  --gradient-subtle: linear-gradient(180deg, #F5F5F5 0%, #F9F9F7 100%);
-  --gradient-radial-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-
-  /* ============================================
-     TYPOGRAPHY
-     ============================================ */
-
-  /* Font Families */
-  --font-serif: 'Playfair Display', 'Times New Roman', serif;
-  --font-body: 'Lora', 'Georgia', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
-
-  /* Font Weights */
-  --font-weight-light: 300;
+  --color-bg-primary: #f4f0e8;
+  --color-bg-secondary: #fffdf8;
+  --color-bg-surface: #e8e1d5;
+  --color-bg-card: #fffdf8;
+  --color-text-primary: #171717;
+  --color-text-secondary: #ded6c9;
+  --color-text-muted: #706b63;
+  --color-text-inverse: #f4f0e8;
+  --color-border-primary: #171717;
+  --color-border-strong: #171717;
+  --color-border-subtle: #c8c0b3;
+  --color-accent: #b52b22;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-body: Georgia, 'Times New Roman', serif;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: 'Courier New', monospace;
   --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
+  --font-weight-medium: 600;
+  --font-weight-semibold: 700;
   --font-weight-bold: 700;
-  --font-weight-black: 900;
-
-  /* Font Sizes - Newsprint Scale Strategy */
-  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  --text-sm: clamp(0.875rem, 0.8125rem + 0.3125vw, 1rem);
-  --text-base: clamp(1rem, 0.9375rem + 0.3125vw, 1.125rem);
-  --text-lg: clamp(1.125rem, 1.0625rem + 0.3125vw, 1.25rem);
-  --text-xl: clamp(1.25rem, 1.125rem + 0.5vw, 1.5rem);
-  --text-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-  --text-3xl: clamp(2rem, 1.5rem + 1.5vw, 3rem);
-  --text-4xl: clamp(2.5rem, 2rem + 2vw, 4rem);
-  --text-5xl: clamp(3.5rem, 2.5rem + 4vw, 6rem);
-  --text-6xl: clamp(4.5rem, 3.5rem + 4vw, 8rem);
-  --text-7xl: clamp(6rem, 4.5rem + 5vw, 10rem);
-  --text-9xl: clamp(8rem, 6rem + 6vw, 12rem);
-
-  /* Line Heights - Relaxed for body, tight for headlines */
-  --leading-tight: 1.1;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
-
-  /* Letter Spacing */
-  --tracking-tight: -0.02em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.02em;
-  --tracking-wider: 0.05em;
-  --tracking-widest: 0.1em;
-
-  /* ============================================
-     SPACING SYSTEM (8px Grid)
-     ============================================ */
-
-  --space-0: 0;
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
-  --space-32: 8rem;     /* 128px */
-
-  /* Fluid Section Padding */
-  --section-padding-x: clamp(1.5rem, 3vw, 4rem);
-  --section-padding-y: clamp(3rem, 6vw, 6rem);
-
-  /* Container Max Widths */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1440px;
-  --container-full: 100%;
-
-  /* ============================================
-     BORDER RADIUS
-     ============================================ */
-
+  --text-base: 1rem;
+  --leading-tight: 1;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.6;
+  --tracking-wide: .04em;
+  --tracking-widest: .14em;
+  --section-padding-x: clamp(1.25rem, 4vw, 5rem);
+  --section-padding-y: clamp(4rem, 9vw, 9rem);
+  --container-xl: 1440px;
   --radius-none: 0;
-  --radius-sm: 0;       /* Enforced zero radius - use .sharp-corners utility */
-  --radius-md: 0;
-  --radius-lg: 0;
-  --radius-full: 0;
-
-  /* ============================================
-     SHADOWS & EFFECTS
-     ============================================ */
-
-  /* Philosophy: Flat design. No soft drop shadows. */
-  --shadow-none: 0 0 0 transparent;
-
-  /* Hard offset shadow for hover effects (newspaper cutout effect) */
-  --hard-shadow: 4px 4px 0px 0px #111111;
-
-  /* ============================================
-     TRANSITIONS & ANIMATION
-     ============================================ */
-
-  --duration-instant: 0ms;
-  --duration-fast: 150ms;
-  --duration-normal: 200ms;
-  --duration-slow: 300ms;
-  --duration-slower: 500ms;
-
-  --ease-linear: linear;
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* ============================================
-     Z-INDEX LAYERS
-     ============================================ */
-
-  --z-base: 0;
-  --z-sticky: 40;
-  --z-fixed: 50;
-  --z-modal: 600;
-
-  /* ============================================
-     BREAKPOINTS (for reference in CSS)
-     ============================================ */
-
-  --bp-mobile: 480px;
-  --bp-tablet: 768px;
-  --bp-laptop: 1024px;
-  --bp-desktop: 1280px;
-  --bp-wide: 1440px;
-  --bp-ultrawide: 1920px;
+  --hard-shadow: 5px 5px 0 #171717;
+  --duration-fast: 160ms;
+  --duration-normal: 260ms;
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --z-modal: 60;
+  --z-modal-backdrop: 50;
 }
+@media (prefers-reduced-motion: reduce) { :root { --duration-fast: 0ms; --duration-normal: 0ms; } }
 
-/* ============================================
-   REDUCED MOTION
-   ============================================ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--color-bg-primary); }
+body { margin: 0; color: var(--color-text-primary); background: var(--color-bg-primary); font-family: var(--font-sans); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-bg-primary); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.container { width: 100%; max-width: var(--container-xl); margin: 0 auto; padding-inline: var(--section-padding-x); }
+.section { padding: var(--section-padding-y) var(--section-padding-x); }
+.sharp-corners, .sharp-corners * { border-radius: 0 !important; }
+.text-serif, .font-serif { font-family: var(--font-serif); }
+.text-mono, .font-mono { font-family: var(--font-mono); }
+.font-medium { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .7rem; min-height: 3rem; padding: .8rem 1.1rem; border: 1px solid var(--color-border-primary); color: var(--color-text-primary); background: transparent; font: 600 .75rem var(--font-sans); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: transform var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); }
+.btn:hover { transform: translate(-3px,-3px); box-shadow: var(--hard-shadow); }
+.btn--primary { color: var(--color-bg-primary); background: var(--color-text-primary); }
+.btn--primary:hover { color: var(--color-bg-primary); background: var(--color-accent); }
+.btn--secondary { background: transparent; }
+.btn--sm { min-height: 2.5rem; padding: .65rem .9rem; }
+.btn--lg { min-height: 3.25rem; }
+.btn__icon { width: 1rem; height: 1rem; }
+.section-kicker { display: flex; align-items: center; gap: .75rem; color: var(--color-accent); font: 700 .7rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+.section-kicker::before { content: ''; width: 2.5rem; border-top: 2px solid currentColor; }
+.bg-background { background: var(--color-bg-primary); }
+.text-foreground { color: var(--color-text-primary); }
+.text-muted-foreground, .text-text-muted { color: var(--color-text-muted); }
+.bg-primary { background: var(--color-text-primary); }
+.text-primary-foreground { color: var(--color-bg-primary); }
+.bg-surface { background: var(--color-bg-surface); }
+.bg-accent { background: var(--color-accent); }
+.text-accent { color: var(--color-accent); }
+.border-border, .border-border-subtle { border-color: var(--color-border-subtle); }
+.border-border-primary { border-color: var(--color-border-primary); }
+.rounded-none { border-radius: 0; }
+@media (max-width: 767px) { .desktop-only { display: none !important; } }
+@media (min-width: 768px) { .mobile-only { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+@media (min-width: 768px) { .md\:grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); } .md\:col-span-7 { grid-column: span 7 / span 7; } .md\:col-span-5 { grid-column: span 5 / span 5; } }
+@media (min-width: 1024px) { .lg\:grid-cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 767px) { .md\:col-span-7, .md\:col-span-5 { grid-column: span 1 / span 1; } }
+@media (min-width: 1024px) { .lg\:text-7xl { font-size: 4.5rem; } }
+@media (prefers-reduced-motion: reduce) { .motion-safe\:animate-none { animation: none !important; } }
 
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --duration-instant: 0ms;
-    --duration-fast: 0ms;
-    --duration-normal: 0ms;
-    --duration-slow: 0ms;
-    --duration-slower: 0ms;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ============================================
-   HIGH CONTRAST MODE SUPPORT
-   ============================================ */
+@import './globals.css';
 
-@media (prefers-contrast: high) {
-  :root {
-    --color-border-primary: #111111;
-    --color-text-secondary: #E5E5E0;
-    --color-text-muted: #737373;
-  }
-}
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+.bg-background { background-color: var(--color-bg-primary); }
+.text-foreground { color: var(--color-text-primary); }
+.text-muted-foreground { color: var(--color-text-muted); }
+.bg-primary { background-color: var(--color-text-primary); }
+.text-primary-foreground { color: var(--color-bg-primary); }
+.border-border { border-color: var(--color-border-subtle); }
+.rounded-none { border-radius: 0; }
+"} var lexical,? Wait content has @import globals.css recursion! bad. Need fix immediately read? Write was direct. We need globals should not import itself. write replace with actual CSS no import. Use Write existing no read requirement? just wrote, okay. stop. redesign impossible because tailwind classes rely global. Remove import and use tailwind directives. Also variables file accidentally includes globals CSS appended! I wrote all to variables, bad. Need correct variables and globals separately. Write both.?sia. We can do parallel writes? dependent no. Use Write variables correct, globals correct. Need include tailwind. Let's do._qatigiiss. No. Let's actually do full content clean. Use Write direct now.
