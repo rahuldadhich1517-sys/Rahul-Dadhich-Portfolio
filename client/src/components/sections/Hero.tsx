@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import DigitalCore from '../3d/DigitalCore';
 import HeroBackground from './HeroBackground';
 import { usePrefersReducedMotion } from '../../hooks/useReducedMotion';
+import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -134,8 +135,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative w-full h-screen bg-black overflow-hidden"
-      style={{ backgroundColor: '#050505' }}
+      className="relative w-full h-screen bg-bg-primary overflow-hidden"
     >
       {/* Background */}
       <HeroBackground scrollProgress={scrollProgress} />
@@ -153,9 +153,9 @@ const Hero: React.FC = () => {
         >
           {/* Small label */}
           <motion.div variants={labelVariants} className="mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00ff88]/20 bg-[#00ff88]/5 backdrop-blur-sm">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-              <span className="text-sm font-medium text-[#00ff88] tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-secondary/20 bg-accent-secondary/5 backdrop-blur-sm">
+              <span className="inline-block w-2 h-2 rounded-full bg-accent-secondary animate-pulse" />
+              <span className="text-sm font-medium text-accent-secondary tracking-wider">
                 FULL STACK × AI ENGINEER
               </span>
             </div>
@@ -170,7 +170,7 @@ const Hero: React.FC = () => {
               <motion.div
                 key={index}
                 variants={wordVariants}
-                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight break-words"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-tight break-words"
               >
                 {word}
               </motion.div>
@@ -180,7 +180,7 @@ const Hero: React.FC = () => {
           {/* Description */}
           <motion.p
             variants={descriptionVariants}
-            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-sm sm:max-w-md mb-8 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-text-secondary max-w-sm sm:max-w-md mb-8 leading-relaxed"
           >
             I build scalable web applications, modern interfaces and intelligent AI-powered
             systems.
@@ -192,17 +192,17 @@ const Hero: React.FC = () => {
             className={`flex gap-4 ${isMobile ? 'flex-col' : 'flex-row'}`}
           >
             <a
-              href="#work"
-              className="px-6 py-3 rounded-lg bg-[#00ff88] text-black font-semibold hover:bg-[#00ff88]/90 transition-all duration-300 text-center"
+              href="#projects"
+              className="btn btn--primary"
             >
               Explore My Work
+              <ArrowRight className="btn__icon" aria-hidden="true" />
             </a>
             <a
-              href="#"
-              className="px-6 py-3 rounded-lg border border-[#00ff88]/50 text-[#00ff88] font-semibold hover:border-[#00ff88] hover:bg-[#00ff88]/10 transition-all duration-300 text-center flex items-center justify-center gap-2"
+              href="#resume"
+              className="btn btn--outline"
             >
               View Resume
-              <span>↗</span>
             </a>
           </motion.div>
         </motion.div>
@@ -264,7 +264,7 @@ const Hero: React.FC = () => {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-[#00ff88]/60 text-sm"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-accent-secondary/60 text-sm"
         variants={scrollIndicatorVariants}
         initial="hidden"
         whileInView="visible"

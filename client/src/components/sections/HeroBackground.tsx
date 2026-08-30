@@ -15,6 +15,17 @@ const HeroBackground: React.FC<HeroBackgroundProps> = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Get CSS variable values for colors
+    const getColorVars = () => {
+      const rootStyles = getComputedStyle(document.documentElement);
+      return {
+        bgPrimary: rootStyles.getPropertyValue('--color-bg-primary').trim() || '#050505',
+        accentSecondary: rootStyles.getPropertyValue('--color-accent-secondary').trim() || '#22d3ee',
+      };
+    };
+
+    let colors = getColorVars();
+
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -30,11 +41,11 @@ const HeroBackground: React.FC<HeroBackgroundProps> = () => {
       time += 0.0005;
 
       // Clear canvas
-      ctx.fillStyle = '#050505';
+      ctx.fillStyle = colors.bgPrimary;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw subtle gradient lines
-      ctx.strokeStyle = 'rgba(0, 255, 136, 0.03)';
+      ctx.strokeStyle = `${colors.accentSecondary}08`; // ~3% opacity
       ctx.lineWidth = 1;
 
       for (let i = 0; i < 3; i++) {
@@ -51,7 +62,7 @@ const HeroBackground: React.FC<HeroBackgroundProps> = () => {
       }
 
       // Draw subtle grid
-      ctx.strokeStyle = 'rgba(0, 255, 136, 0.01)';
+      ctx.strokeStyle = `${colors.accentSecondary}03`; // ~1% opacity
       ctx.lineWidth = 0.5;
       const gridSize = 50;
       for (let i = 0; i < canvas.width; i += gridSize) {
@@ -69,7 +80,7 @@ const HeroBackground: React.FC<HeroBackgroundProps> = () => {
       }
 
       // Draw corner accents
-      ctx.strokeStyle = 'rgba(0, 255, 136, 0.1)';
+      ctx.strokeStyle = `${colors.accentSecondary}1A`; // ~10% opacity
       ctx.lineWidth = 2;
 
       // Top-left corner

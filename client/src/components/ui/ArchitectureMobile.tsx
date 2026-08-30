@@ -60,7 +60,7 @@ const ArchitectureMobile: React.FC = () => {
                   variants={lineVariants}
                   className="flex justify-center py-2"
                 >
-                  <div className="w-1 h-8 bg-gradient-to-b from-[#00ff88] to-[#00ff88]/50" />
+                  <div className="w-1 h-8 bg-gradient-to-b from-accent-primary to-accent-primary/50" />
                 </motion.div>
               )}
 
@@ -73,8 +73,8 @@ const ArchitectureMobile: React.FC = () => {
                 <div
                   className={`p-4 rounded-lg border-2 transition-all duration-300 ${
                     isExpanded
-                      ? 'border-[#00ff88] bg-[#00ff88]/15'
-                      : 'border-[#00ff88]/30 bg-[#00ff88]/5 hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10'
+                      ? 'border-accent-primary bg-accent-primary/15'
+                      : 'border-accent-primary/30 bg-accent-primary/5 hover:border-accent-primary/50 hover:bg-accent-primary/10'
                   }`}
                   style={{ borderColor: node.color, backgroundColor: `${node.color}10` }}
                 >
@@ -87,7 +87,7 @@ const ArchitectureMobile: React.FC = () => {
                       >
                         {node.label}
                       </h3>
-                      <p className="text-xs text-gray-400 mt-1">{node.description}</p>
+                      <p className="text-xs text-text-muted mt-1">{node.description}</p>
                     </div>
                     <ChevronDown
                       size={18}
@@ -106,7 +106,7 @@ const ArchitectureMobile: React.FC = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="mt-4 pt-4 border-t border-[#00ff88]/20 space-y-2"
+                      className="mt-4 pt-4 border-t border-border-primary space-y-2"
                     >
                       {node.details.map((detail, idx) => (
                         <motion.div
@@ -119,7 +119,7 @@ const ArchitectureMobile: React.FC = () => {
                           <span style={{ color: node.color }} className="text-xs font-bold">
                             ▪
                           </span>
-                          <span className="text-xs text-gray-300">{detail}</span>
+                          <span className="text-xs text-text-secondary">{detail}</span>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -137,9 +137,9 @@ const ArchitectureMobile: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
         viewport={{ once: true }}
-        className="mt-8 p-4 rounded-lg border border-[#00ff88]/20 bg-[#00ff88]/5 text-xs space-y-2"
+        className="mt-8 p-4 rounded-lg border border-border-primary bg-bg-surface/50 text-xs space-y-2"
       >
-        <p className="text-gray-400 uppercase tracking-widest font-semibold mb-3">Layer Types</p>
+        <p className="text-text-muted uppercase tracking-widest font-semibold mb-3">Layer Types</p>
         <div className="space-y-2">
           {[
             { type: 'Client Interface', color: '#61dafb' },
@@ -154,7 +154,7 @@ const ArchitectureMobile: React.FC = () => {
                 className="w-3 h-3 rounded-full flex-shrink-0"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-gray-300">{item.type}</span>
+              <span className="text-text-secondary">{item.type}</span>
             </div>
           ))}
         </div>

@@ -67,20 +67,19 @@ const Technology: React.FC = () => {
   return (
     <section
       id="technology"
-      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-black overflow-hidden"
-      style={{ backgroundColor: '#050505' }}
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-bg-primary overflow-hidden"
     >
       {/* Background accent */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--color-accent-primary-glow) 0%, transparent 70%)',
         }}
       />
       <div
         className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 255, 200, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--color-accent-secondary-glow) 0%, transparent 70%)',
         }}
       />
 
@@ -93,7 +92,7 @@ const Technology: React.FC = () => {
           viewport={{ once: true }}
           className="mb-4 md:mb-8"
         >
-          <span className="text-sm md:text-base font-mono text-[#00ff88] tracking-widest">
+          <span className="text-sm md:text-base font-mono text-accent-primary tracking-widest">
             02 / THE ENGINE
           </span>
         </motion.div>
@@ -110,7 +109,7 @@ const Technology: React.FC = () => {
             <motion.h2
               key={index}
               variants={wordVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight"
             >
               {line}
             </motion.h2>
@@ -126,8 +125,8 @@ const Technology: React.FC = () => {
             viewport={{ once: true }}
             className="w-full h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden"
             style={{
-              border: '1px solid rgba(0, 255, 136, 0.2)',
-              background: 'radial-gradient(ellipse at center, rgba(0, 255, 136, 0.05) 0%, rgba(5, 5, 5, 0) 70%)',
+              border: '1px solid rgba(var(--color-accent-primary-rgb), 0.2)',
+              background: 'radial-gradient(ellipse at center, var(--color-accent-primary-glow) 0%, transparent 70%)',
             }}
           >
             <Canvas

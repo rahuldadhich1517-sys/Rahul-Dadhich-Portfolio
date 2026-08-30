@@ -90,14 +90,13 @@ const About: React.FC = () => {
     <section
       ref={aboutRef}
       id="about"
-      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-black overflow-hidden"
-      style={{ backgroundColor: '#050505' }}
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-bg-primary overflow-hidden"
     >
       {/* Background accent */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--color-accent-primary-glow) 0%, transparent 70%)',
         }}
       />
 
@@ -110,7 +109,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="mb-4 md:mb-8"
         >
-          <span className="text-sm md:text-base font-mono text-[#00ff88] tracking-widest">
+          <span className="text-sm md:text-base font-mono text-accent-primary tracking-widest">
             01 / ABOUT
           </span>
         </motion.div>
@@ -134,7 +133,7 @@ const About: React.FC = () => {
                 <motion.h2
                   key={index}
                   variants={wordVariants}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-2"
                 >
                   {line}
                 </motion.h2>
@@ -144,7 +143,7 @@ const About: React.FC = () => {
             {/* Description */}
             <motion.p
               variants={descriptionVariants}
-              className="text-base md:text-lg text-gray-300 leading-relaxed max-w-md mb-12 md:mb-16"
+              className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md mb-12 md:mb-16"
             >
               I'm Rahul Dadhich, a Full Stack Developer focused on building scalable web applications, modern interfaces and AI-powered experiences.
             </motion.p>
@@ -260,19 +259,19 @@ const StatCard: React.FC<StatCardProps> = ({
     >
       <div className="relative mb-3">
         {isInfinity ? (
-          <span className="text-3xl md:text-4xl font-bold text-[#00ff88]">∞</span>
+          <span className="text-3xl md:text-4xl font-bold text-accent-primary">∞</span>
         ) : (
           <div className="flex items-baseline gap-1">
             <AnimatedCounter
               target={number}
               isInView={isInView}
-              className="text-3xl md:text-4xl font-bold text-[#00ff88]"
+              className="text-3xl md:text-4xl font-bold text-accent-primary"
             />
-            <span className="text-2xl md:text-3xl font-bold text-[#00ff88]">{suffix}</span>
+            <span className="text-2xl md:text-3xl font-bold text-accent-primary">{suffix}</span>
           </div>
         )}
       </div>
-      <span className="text-sm md:text-base text-gray-400 font-medium tracking-wide">{label}</span>
+      <span className="text-sm md:text-base text-text-muted font-medium tracking-wide">{label}</span>
     </motion.div>
   );
 };

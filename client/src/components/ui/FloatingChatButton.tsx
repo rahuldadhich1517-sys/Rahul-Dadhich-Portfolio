@@ -42,7 +42,7 @@ export const FloatingChatButton: React.FC = () => {
       >
         {/* Pulse background */}
         <motion.div
-          className="absolute inset-0 rounded-full bg-[#00ff88]/20 border border-[#00ff88]/30"
+          className="absolute inset-0 rounded-full bg-accent-primary/20 border border-accent-primary/30"
           variants={pulseVariants}
           animate={isOpen ? 'idle' : 'pulse'}
         />
@@ -54,7 +54,7 @@ export const FloatingChatButton: React.FC = () => {
           initial="idle"
           whileHover="hover"
           whileTap="tap"
-          className="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#00ff88] to-[#00ffff] text-black shadow-lg shadow-[#00ff88]/50 flex items-center justify-center font-bold text-2xl hover:shadow-[0_0_30px_rgba(0,255,136,0.6)] transition-shadow"
+          className="relative w-16 h-16 rounded-full bg-gradient-primary text-bg-primary shadow-lg shadow-accent-primary/50 flex items-center justify-center font-bold text-2xl hover:shadow-[0_0_30px_var(--color-accent-primary-glow-strong)] transition-shadow"
           aria-label="Open AI Assistant"
         >
           <span className="text-2xl">🤖</span>
@@ -63,13 +63,13 @@ export const FloatingChatButton: React.FC = () => {
         {/* Label */}
         {!isOpen && (
           <motion.div
-            className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 whitespace-nowrap text-sm text-white"
+            className="absolute -top-12 left-1/2 -translate-x-1/2 bg-bg-card border border-border-primary rounded-lg px-3 py-2 whitespace-nowrap text-sm text-text-primary"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
             Ask Rahul AI
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45 border-r border-b border-gray-700" />
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-bg-card rotate-45 border-r border-b border-border-primary" />
           </motion.div>
         )}
       </motion.div>

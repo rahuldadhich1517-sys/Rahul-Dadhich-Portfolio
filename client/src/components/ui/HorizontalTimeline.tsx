@@ -57,10 +57,10 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
       {/* Timeline Track */}
       <div className="relative mb-16 lg:mb-20">
         {/* Background track */}
-        <div className="h-1 bg-gray-800 rounded-full overflow-hidden relative">
+        <div className="h-1 bg-border-primary rounded-full overflow-hidden relative">
           {/* Animated fill */}
           <motion.div
-            className="h-full bg-gradient-to-r from-[#00ff88] via-[#00ffff] to-[#00ff88]"
+            className="h-full bg-gradient-primary"
             initial={{ width: '0%' }}
             animate={{ width: `${scrollProgress * 100}%` }}
             transition={{ type: 'tween', duration: 0.3 }}
@@ -68,7 +68,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
 
           {/* Glow effect */}
           <motion.div
-            className="absolute top-1/2 -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-[#00ff88]/50 to-[#00ffff]/50 blur-xl"
+            className="absolute top-1/2 -translate-y-1/2 w-16 h-8 bg-gradient-primary/50 blur-xl"
             animate={{
               left: `${scrollProgress * 100}%`,
             }}
@@ -96,7 +96,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                 {/* Outer glow circle */}
                 <motion.div
                   className="absolute inset-0 rounded-full"
-                  animate={isSelected ? { boxShadow: '0 0 20px rgba(0, 255, 136, 0.8)' } : {}}
+                  animate={isSelected ? { boxShadow: '0 0 20px var(--color-accent-primary-glow)' } : {}}
                   transition={{ duration: 0.3 }}
                   style={{
                     width: '24px',
@@ -111,8 +111,8 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                 <motion.div
                   className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
                     isSelected
-                      ? 'bg-[#00ff88] border-[#00ff88] shadow-lg shadow-[#00ff88]/50'
-                      : 'bg-gray-900 border-gray-600 hover:border-[#00ff88]'
+                      ? 'bg-accent-primary border-accent-primary shadow-lg shadow-accent-primary/50'
+                      : 'bg-bg-card border-border-strong hover:border-accent-primary'
                   }`}
                   whileHover={{ scale: 1.3 }}
                   whileTap={{ scale: 0.95 }}
@@ -120,7 +120,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
 
                 {/* Year label below */}
                 <motion.div
-                  className="absolute top-8 left-1/2 -translate-x-1/2 text-xs font-mono text-gray-400 whitespace-nowrap"
+                  className="absolute top-8 left-1/2 -translate-x-1/2 text-xs font-mono text-text-muted whitespace-nowrap"
                   initial={{ opacity: 0, y: -10 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                   transition={{ delay: 0.1 }}
@@ -141,7 +141,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4 }}
-          className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50 rounded-xl p-8 lg:p-10 backdrop-blur-sm hover:border-gray-600/50 transition-colors"
+          className="bg-gradient-to-br from-bg-surface/50 to-bg-card/30 border border-border-primary rounded-xl p-8 lg:p-10 backdrop-blur-sm hover:border-border-strong transition-colors"
         >
           {/* Header */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-6">
@@ -151,7 +151,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="text-xs font-mono text-[#00ff88] uppercase tracking-wider mb-2"
+                className="text-xs font-mono text-accent-primary uppercase tracking-wider mb-2"
               >
                 {selectedExperience.type}
               </motion.div>
@@ -159,7 +159,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.15 }}
-                className="text-2xl font-bold text-white mb-2"
+                className="text-2xl font-bold text-text-primary mb-2"
               >
                 {selectedExperience.role}
               </motion.h3>
@@ -167,7 +167,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-[#00ffff]"
+                className="text-lg text-accent-secondary"
               >
                 {selectedExperience.company}
               </motion.p>
@@ -182,10 +182,10 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.25 }}
                   >
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
+                    <p className="text-xs text-text-muted uppercase tracking-wider mb-1">
                       Duration
                     </p>
-                    <p className="text-white font-medium">{selectedExperience.duration}</p>
+                    <p className="text-text-primary font-medium">{selectedExperience.duration}</p>
                   </motion.div>
                 )}
                 {selectedExperience.location && (
@@ -194,10 +194,10 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
+                    <p className="text-xs text-text-muted uppercase tracking-wider mb-1">
                       Location
                     </p>
-                    <p className="text-white font-medium">{selectedExperience.location}</p>
+                    <p className="text-text-primary font-medium">{selectedExperience.location}</p>
                   </motion.div>
                 )}
               </div>
@@ -209,9 +209,9 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.35 }}
-            className="mb-6 pb-6 border-b border-gray-700/50"
+            className="mb-6 pb-6 border-b border-border-primary"
           >
-            <p className="text-gray-300 leading-relaxed">{selectedExperience.description}</p>
+            <p className="text-text-secondary leading-relaxed">{selectedExperience.description}</p>
           </motion.div>
 
           {/* Technologies */}
@@ -220,7 +220,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <p className="text-xs font-mono text-gray-500 uppercase tracking-wider mb-3">
+            <p className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3">
               Technologies
             </p>
             <div className="flex flex-wrap gap-2">
@@ -230,7 +230,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.45 + index * 0.05 }}
-                  className="px-3 py-1 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-medium rounded-full hover:bg-[#00ff88]/20 transition-colors"
+                  className="px-3 py-1 bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-medium rounded-full hover:bg-accent-primary/20 transition-colors"
                 >
                   {tech}
                 </motion.span>
@@ -240,7 +240,7 @@ export const HorizontalTimeline: React.FC<HorizontalTimelineProps> = ({ experien
 
           {/* Expand indicator */}
           <motion.div
-            className="mt-6 text-center text-xs text-gray-500"
+            className="mt-6 text-center text-xs text-text-muted"
             animate={{ y: [0, 3, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >

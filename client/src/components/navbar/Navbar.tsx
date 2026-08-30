@@ -9,17 +9,21 @@ interface NavItem {
 }
 
 const DESKTOP_NAV_ITEMS: NavItem[] = [
-  { label: 'Work', href: '#work' },
+  { label: 'Home', href: '#' },
   { label: 'About', href: '#about' },
-  { label: 'Engineering', href: '#engineering' },
-  { label: 'AI Lab', href: '#ai-lab' },
+  { label: 'Skills', href: '#technology' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Services', href: '#engineering' },
 ];
 
 const MOBILE_NAV_ITEMS: NavItem[] = [
-  { label: 'Work', href: '#work' },
+  { label: 'Home', href: '#' },
   { label: 'About', href: '#about' },
-  { label: 'Engineering', href: '#engineering' },
-  { label: 'AI Lab', href: '#ai-lab' },
+  { label: 'Skills', href: '#technology' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Services', href: '#engineering' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -118,22 +122,18 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="navbar__cta desktop-only" aria-hidden={isMobileMenuOpen}>
-            <div className="navbar__status">
-              <span className="navbar__status-dot" aria-hidden="true" />
-              <span>Available for opportunities</span>
-            </div>
             <motion.a
-              href="#contact"
+              href="#resume"
               className="btn btn--primary btn--sm navbar__btn"
               role="button"
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('#contact');
+                handleNavClick('#resume');
               }}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Let's Talk</span>
+              <span>Resume</span>
               <ArrowRight className="navbar__btn-icon" aria-hidden="true" />
             </motion.a>
           </div>
@@ -234,13 +234,23 @@ export function Navbar() {
                 </ul>
 
                 <div className="navbar__mobile-cta">
-                  <div className="navbar__status">
-                    <span className="navbar__status-dot" aria-hidden="true" />
-                    <span>Available for opportunities</span>
-                  </div>
+                  <motion.a
+                    href="#resume"
+                    className="btn btn--primary btn--lg navbar__mobile-btn"
+                    role="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick('#resume');
+                    }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span>Resume</span>
+                    <ArrowRight className="navbar__btn-icon" aria-hidden="true" />
+                  </motion.a>
                   <motion.a
                     href="#contact"
-                    className="btn btn--primary btn--lg navbar__mobile-btn"
+                    className="btn btn--secondary btn--lg navbar__mobile-btn"
                     role="button"
                     onClick={(e) => {
                       e.preventDefault();
@@ -249,7 +259,7 @@ export function Navbar() {
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span>Let's Talk</span>
+                    <span>Contact</span>
                     <ArrowRight className="navbar__btn-icon" aria-hidden="true" />
                   </motion.a>
                 </div>

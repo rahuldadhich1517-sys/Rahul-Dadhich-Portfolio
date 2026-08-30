@@ -40,7 +40,7 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-black relative overflow-hidden px-4 sm:px-8 lg:px-16 py-20 lg:py-32"
+      className="min-h-screen bg-bg-primary relative overflow-hidden px-4 sm:px-8 lg:px-16 py-20 lg:py-32"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent pointer-events-none" />
@@ -55,13 +55,13 @@ export const Experience: React.FC = () => {
         {/* Section Header */}
         <motion.div className="mb-12 lg:mb-20" variants={itemVariants}>
           <div className="flex items-center gap-4 mb-4">
-            <div className="text-sm font-mono text-[#00ff88] tracking-wider">05 / EXPERIENCE</div>
-            <div className="h-px flex-grow bg-gradient-to-r from-[#00ff88] to-transparent max-w-xs" />
+            <div className="text-sm font-mono text-accent-primary tracking-wider">05 / EXPERIENCE</div>
+            <div className="h-px flex-grow bg-gradient-to-r from-accent-primary to-transparent max-w-xs" />
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
             THE PATH SO FAR.
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-text-secondary max-w-2xl">
             A journey through roles, projects, and continuous learning.
           </p>
         </motion.div>

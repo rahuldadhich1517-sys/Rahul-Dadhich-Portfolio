@@ -25,14 +25,13 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-black overflow-hidden"
-      style={{ backgroundColor: '#050505' }}
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-bg-primary overflow-hidden"
     >
       {/* Background accent */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--color-accent-primary-glow) 0%, transparent 70%)',
         }}
       />
 
@@ -45,7 +44,7 @@ const Projects: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="mb-4 md:mb-8"
         >
-          <span className="text-sm md:text-base font-mono text-[#00ff88] tracking-widest">
+          <span className="text-sm md:text-base font-mono text-accent-primary tracking-widest">
             03 / SELECTED WORK
           </span>
         </motion.div>
@@ -62,7 +61,7 @@ const Projects: React.FC = () => {
             <motion.h2
               key={index}
               variants={itemFadeUpVariants}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight"
             >
               {line}
             </motion.h2>

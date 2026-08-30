@@ -69,7 +69,7 @@ const ArchitectureVisualization: React.FC = () => {
         width="100%"
         height="600"
         viewBox="0 0 800 600"
-        className="w-full border border-[#00ff88]/20 rounded-lg bg-gradient-to-b from-[#00ff88]/5 to-transparent"
+        className="w-full border border-border-primary rounded-lg bg-gradient-to-b from-bg-surface to-transparent"
       >
         {/* Draw connections */}
         <defs>
@@ -81,7 +81,7 @@ const ArchitectureVisualization: React.FC = () => {
             refY="3"
             orient="auto"
           >
-            <polygon points="0 0, 10 3, 0 6" fill="#00ff88" />
+            <polygon points="0 0, 10 3, 0 6" fill="var(--color-accent-primary)" />
           </marker>
         </defs>
 
@@ -95,7 +95,7 @@ const ArchitectureVisualization: React.FC = () => {
               {/* Background line for glow effect */}
               <motion.path
                 d={calculatePath(conn.from, conn.to)}
-                stroke="#00ff88"
+                stroke="var(--color-accent-primary)"
                 strokeWidth="3"
                 fill="none"
                 opacity="0.3"
@@ -105,7 +105,7 @@ const ArchitectureVisualization: React.FC = () => {
               {/* Main line */}
               <motion.path
                 d={calculatePath(conn.from, conn.to)}
-                stroke="#00ff88"
+                stroke="var(--color-accent-primary)"
                 strokeWidth="2"
                 fill="none"
                 strokeDasharray="1000"
@@ -209,16 +209,16 @@ const ArchitectureVisualization: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="mt-8 p-8 rounded-lg border border-[#00ff88]/30 bg-gradient-to-br from-[#00ff88]/10 to-[#00ff88]/5"
+          className="mt-8 p-8 rounded-lg border border-border-primary bg-gradient-to-br from-bg-surface to-bg-card"
         >
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-1">{selectedNode.label}</h3>
-              <p className="text-[#00ff88] font-semibold">{selectedNode.description}</p>
+              <h3 className="text-2xl font-bold text-text-primary mb-1">{selectedNode.label}</h3>
+              <p className="text-accent-primary font-semibold">{selectedNode.description}</p>
             </div>
             <button
               onClick={() => setSelectedNode(null)}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-text-muted hover:text-text-primary transition-colors"
             >
               ✕
             </button>
@@ -232,23 +232,23 @@ const ArchitectureVisualization: React.FC = () => {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex items-center gap-3 p-3 rounded bg-[#00ff88]/5 border border-[#00ff88]/20"
+                className="flex items-center gap-3 p-3 rounded bg-bg-card border border-border-primary"
               >
-                <span className="text-[#00ff88] font-bold">▪</span>
-                <span className="text-gray-300">{detail}</span>
+                <span className="text-accent-primary font-bold">▪</span>
+                <span className="text-text-secondary">{detail}</span>
               </motion.div>
             ))}
           </div>
 
           {/* Connected services */}
           {getConnectionsForNode(selectedNode.id).length > 0 && (
-            <div className="mt-6 pt-6 border-t border-[#00ff88]/20">
-              <p className="text-xs text-gray-400 uppercase tracking-widest mb-3">Connections</p>
+            <div className="mt-6 pt-6 border-t border-border-primary">
+              <p className="text-xs text-text-muted uppercase tracking-widest mb-3">Connections</p>
               <div className="flex flex-wrap gap-2">
                 {getConnectionsForNode(selectedNode.id).map((conn, index) => (
                   <div
                     key={index}
-                    className="px-3 py-1 rounded-full text-xs bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/20"
+                    className="px-3 py-1 rounded-full text-xs bg-accent-primary/10 text-accent-primary border border-accent-primary/20"
                   >
                     {conn.from === selectedNode.id ? `→ ${conn.to}` : `← ${conn.from}`}
                   </div>
@@ -265,7 +265,7 @@ const ArchitectureVisualization: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="mt-6 text-center text-sm text-gray-400 flex items-center justify-center gap-2"
+          className="mt-6 text-center text-sm text-text-muted flex items-center justify-center gap-2"
         >
           <ChevronDown size={16} className="animate-bounce" />
           Click any node to see details
