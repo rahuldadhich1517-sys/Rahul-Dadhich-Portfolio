@@ -7,42 +7,27 @@
 .navbar__link { color: var(--color-text-primary); text-decoration: none; text-transform: uppercase; font: 700 .67rem var(--font-mono); letter-spacing: .12em; }
 .navbar__link:hover { color: var(--color-accent); }
 .navbar__cta { display: none; }
-.navbar__mobile-toggle { display: flex; align-items: center; justify-content: center; size: 44px; width: 44px; height: 44px; border: 1px solid var(--color-border-primary); background: transparent; color: var(--color-text-primary); }
+.navbar__mobile-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--color-border-primary); background: transparent; color: var(--color-text-primary); cursor: pointer; }
 .navbar__mobile-icon { width: 20px; height: 20px; }
 .navbar__mobile-overlay { position: fixed; inset: 0; background: var(--color-bg-primary); z-index: var(--z-modal-backdrop); }
 .navbar__mobile-menu { position: fixed; inset: 0; z-index: var(--z-modal); background: var(--color-bg-primary); }
-.navbar__mobile-content { height: 100%; padding: 1.5rem var(--section-padding-x); display: flex; flex-direction: column; }
+.navbar__mobile-content { height: 100%; padding: 1.5rem var(--section-padding-x); display: flex; flex-direction: column; overflow-y: auto; }
 .navbar__mobile-header { display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border-primary); padding-bottom: 1.5rem; }
-.navbar__mobile-list { list-style: none; padding: 0; margin: 2rem 0; }
+.navbar__mobile-list { list-style: none; padding: 0; margin: 2rem 0; flex: 1; }
 .navbar__mobile-link { display: block; padding: 1rem 0; border-bottom: 1px solid var(--color-border-subtle); color: var(--color-text-primary); text-decoration: none; text-transform: uppercase; font: 700 1.4rem var(--font-serif); }
 .navbar__mobile-link:hover { color: var(--color-accent); }
 .navbar__mobile-cta { display: flex; gap: .75rem; margin-top: auto; }
 .navbar__mobile-btn { flex: 1; }
-@media (min-width: 768px) { .navbar__desktop-nav, .navbar__cta { display: flex; } .navbar__mobile-toggle, .navbar__mobile-menu, .navbar__mobile-overlay { display: none; } }
-@media (max-width: 500px) { .navbar__mobile-cta { flex-direction: column; } }
-@media (prefers-reduced-motion: reduce) { .navbar *, .navbar__mobile-menu * { transition: none !important; } }
-
-/* legacy utility aliases */
 .desktop-only { display: none; }
 .mobile-only { display: flex; }
-@media (min-width: 768px) { .desktop-only { display: flex; } .mobile-only { display: none; } }
 .navbar__btn-icon { width: 16px; height: 16px; }
 .navbar__btn { white-space: nowrap; }
-.navbar__mobile-icon { flex: none; }
-.navbar__mobile-content .navbar__logo-text { font-size: 1.5rem; }
-.navbar__mobile-header .navbar__logo { display: inline-flex; }
-.navbar__mobile-btn .navbar__btn-icon { margin-left: .25rem; }
-.navbar__mobile-toggle { cursor: pointer; }
-.navbar__mobile-toggle:hover { color: var(--color-accent); }
-.navbar__mobile-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
-.navbar__link:focus-visible, .navbar__logo:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
-.navbar__mobile-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
-.navbar__mobile-header + .navbar__mobile-list { flex: 1; }
-.navbar__mobile-menu .btn:hover { transform: translate(-2px,-2px); }
-.navbar__mobile-menu .btn { box-shadow: none; }
-.navbar__mobile-menu .btn:hover { box-shadow: var(--hard-shadow); }
-.navbar__mobile-content { overflow-y: auto; }
-.navbar__mobile-menu[aria-hidden='true'] { display: none; }
-.navbar__inner::after { content: 'PORTFOLIO / 2026'; display: none; }
-@media (min-width: 1100px) { .navbar__inner::after { display: block; font: .65rem var(--font-mono); letter-spacing: .1em; color: var(--color-text-muted); order: -1; } }
-"}},{
+@media (min-width: 768px) {
+  .navbar__desktop-nav, .navbar__cta { display: flex; }
+  .navbar__mobile-toggle, .navbar__mobile-menu, .navbar__mobile-overlay { display: none; }
+  .desktop-only { display: flex; }
+  .mobile-only { display: none; }
+}
+@media (max-width: 500px) { .navbar__mobile-cta { flex-direction: column; } }
+@media (min-width: 1100px) { .navbar__inner::after { content: 'PORTFOLIO / 2026'; display: block; font: .65rem var(--font-mono); letter-spacing: .1em; color: var(--color-text-muted); order: -1; } }
+@media (prefers-reduced-motion: reduce) { .navbar *, .navbar__mobile-menu * { transition: none !important; } }
