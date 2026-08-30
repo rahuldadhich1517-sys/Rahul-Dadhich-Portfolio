@@ -90,16 +90,8 @@ const About: React.FC = () => {
     <section
       ref={aboutRef}
       id="about"
-      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-bg-primary overflow-hidden"
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-[#F9F9F7] overflow-hidden sharp-corners"
     >
-      {/* Background accent */}
-      <div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, var(--color-accent-primary-glow) 0%, transparent 70%)',
-        }}
-      />
-
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Top Label */}
         <motion.div
@@ -109,7 +101,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="mb-4 md:mb-8"
         >
-          <span className="text-sm md:text-base font-mono text-accent-primary tracking-widest">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#111111]/20 bg-[#CC0000]/20 text-[#CC0000] tracking-widest uppercase text-xs">
             01 / ABOUT
           </span>
         </motion.div>
@@ -133,7 +125,7 @@ const About: React.FC = () => {
                 <motion.h2
                   key={index}
                   variants={wordVariants}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-2"
+                  className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#111111] leading-tight mb-2"
                 >
                   {line}
                 </motion.h2>
@@ -143,7 +135,7 @@ const About: React.FC = () => {
             {/* Description */}
             <motion.p
               variants={descriptionVariants}
-              className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md mb-12 md:mb-16"
+              className="text-base md:text-lg text-[#737373] leading-relaxed max-w-md mb-12 md:mb-16"
             >
               I'm Rahul Dadhich, a Full Stack Developer focused on building scalable web applications, modern interfaces and AI-powered experiences.
             </motion.p>
@@ -259,19 +251,19 @@ const StatCard: React.FC<StatCardProps> = ({
     >
       <div className="relative mb-3">
         {isInfinity ? (
-          <span className="text-3xl md:text-4xl font-bold text-accent-primary">∞</span>
+          <span className="font-serif text-3xl md:text-4xl font-bold text-[#CC0000]">∞</span>
         ) : (
           <div className="flex items-baseline gap-1">
             <AnimatedCounter
               target={number}
               isInView={isInView}
-              className="text-3xl md:text-4xl font-bold text-accent-primary"
+              className="font-serif text-3xl md:text-4xl font-bold text-[#CC0000]"
             />
-            <span className="text-2xl md:text-3xl font-bold text-accent-primary">{suffix}</span>
+            <span className="font-serif text-2xl md:text-3xl font-bold text-[#CC0000]">{suffix}</span>
           </div>
         )}
       </div>
-      <span className="text-sm md:text-base text-text-muted font-medium tracking-wide">{label}</span>
+      <span className="text-sm md:text-base font-medium tracking-wide text-[#737373]">{label}</span>
     </motion.div>
   );
 };

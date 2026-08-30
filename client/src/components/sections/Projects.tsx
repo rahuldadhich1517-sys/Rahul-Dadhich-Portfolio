@@ -25,16 +25,8 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-bg-primary overflow-hidden"
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-[#F9F9F7] overflow-hidden sharp-corners"
     >
-      {/* Background accent */}
-      <div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, var(--color-accent-primary-glow) 0%, transparent 70%)',
-        }}
-      />
-
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -44,7 +36,7 @@ const Projects: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="mb-4 md:mb-8"
         >
-          <span className="text-sm md:text-base font-mono text-accent-primary tracking-widest">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#111111]/20 bg-[#CC0000]/20 text-[#CC0000] tracking-widest uppercase text-xs">
             03 / SELECTED WORK
           </span>
         </motion.div>
@@ -61,7 +53,7 @@ const Projects: React.FC = () => {
             <motion.h2
               key={index}
               variants={itemFadeUpVariants}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight"
+              className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-[#111111] leading-tight"
             >
               {line}
             </motion.h2>

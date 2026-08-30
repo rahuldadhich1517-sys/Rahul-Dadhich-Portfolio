@@ -17,125 +17,81 @@ export default {
     },
     extend: {
       colors: {
-        // Backgrounds
-        'bg-primary': '#050505',
-        'bg-secondary': '#08080b',
-        'bg-surface': '#0d0d12',
-        'bg-card': '#101116',
-        // Text
-        'text-primary': '#f5f5f5',
-        'text-secondary': '#a1a1aa',
-        'text-muted': '#71717a',
-        'text-inverse': '#050505',
-        // Borders
-        'border-primary': 'rgba(255, 255, 255, 0.08)',
-        'border-strong': 'rgba(255, 255, 255, 0.16)',
-        'border-subtle': 'rgba(255, 255, 255, 0.04)',
-        // Accents
-        'accent-primary': '#c084fc',
-        'accent-primary-strong': '#a855f7',
-        'accent-primary-glow': 'rgba(192, 132, 252, 0.4)',
-        'accent-secondary': '#22d3ee',
-        'accent-secondary-strong': '#06b6d4',
-        'accent-secondary-glow': 'rgba(34, 211, 238, 0.35)',
-        // Semantic
-        'success': '#67f5a4',
-        'success-glow': 'rgba(103, 245, 164, 0.35)',
-        'warning': '#fbbf24',
-        'error': '#fb7185',
-        'error-glow': 'rgba(251, 113, 133, 0.35)',
+        // Newsprint Single Palette - Light Mode
+        'bg-primary': '#F9F9F7',       /* Newsprint Off-White */
+        'bg-secondary': '#FFFFFF',     /* White */
+        'bg-surface': '#F5F5F5',       /* Hover backgrounds */
+        'bg-card': '#FFFFFF',          /* Card backgrounds */
+
+        'text-primary': '#111111',     /* Ink Black - all text */
+        'text-secondary': '#E5E5E0',   /* Divider Grey - secondary */
+        'text-muted': '#737373',       /* Metadata, captions */
+        'text-inverse': '#F9F9F7',     /* White on inverted sections */
+
+        'border-primary': '#111111',   /* Ink Black - primary structural element */
+        'border-strong': '#111111',    /* 4px for major dividers */
+        'border-subtle': '#E5E5E0',    /* Subtle dividers */
+
+        'accent': '#CC0000',           /* Editorial Red - sparing use */
       },
       fontFamily: {
-        primary: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['Playfair Display', 'Times New Roman', 'serif'],
+        body: ['Lora', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'SF Mono', 'monospace'],
       },
       fontSize: {
-        'xs': ['clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem)', { lineHeight: '1.5', letterSpacing: '0.02em' }],
-        'sm': ['clamp(0.8125rem, 0.75rem + 0.3125vw, 0.875rem)', { lineHeight: '1.5', letterSpacing: '0' }],
-        'base': ['clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem)', { lineHeight: '1.5', letterSpacing: '0' }],
-        'lg': ['clamp(1.0625rem, 1rem + 0.3125vw, 1.125rem)', { lineHeight: '1.5', letterSpacing: '0' }],
-        'xl': ['clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem)', { lineHeight: '1.375', letterSpacing: '-0.02em' }],
-        '2xl': ['clamp(1.5rem, 1.25rem + 1.25vw, 2rem)', { lineHeight: '1.25', letterSpacing: '-0.02em' }],
-        '3xl': ['clamp(2rem, 1.5rem + 2.5vw, 3rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        '4xl': ['clamp(2.5rem, 2rem + 2.5vw, 4rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        '5xl': ['clamp(3.5rem, 2.5rem + 5vw, 6rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'xs': ['clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)', { lineHeight: '1.625', letterSpacing: '0.02em' }],
+        'sm': ['clamp(0.875rem, 0.8125rem + 0.3125vw, 1rem)', { lineHeight: '1.625', letterSpacing: '0' }],
+        'base': ['clamp(1rem, 0.9375rem + 0.3125vw, 1.125rem)', { lineHeight: '1.625', letterSpacing: '0' }],
+        'lg': ['clamp(1.125rem, 1.0625rem + 0.3125vw, 1.25rem)', { lineHeight: '1.5', letterSpacing: '-0.02em' }],
+        'xl': ['clamp(1.25rem, 1.125rem + 0.5vw, 1.5rem)', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+        '2xl': ['clamp(1.5rem, 1.25rem + 1vw, 2rem)', { lineHeight: '1.3', letterSpacing: '-0.02em' }],
+        '3xl': ['clamp(2rem, 1.5rem + 1.5vw, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        '4xl': ['clamp(2.5rem, 2rem + 2vw, 4rem)', { lineHeight: '1.2', letterSpacing: '-0.03em' }],
+        '5xl': ['clamp(3.5rem, 2.5rem + 4vw, 6rem)', { lineHeight: '1', letterSpacing: 'tracking-tighter' }],
+        '6xl': ['clamp(4.5rem, 3.5rem + 4vw, 8rem)', { lineHeight: '1', letterSpacing: 'tracking-tighter' }],
+        '7xl': ['clamp(6rem, 4.5rem + 5vw, 10rem)', { lineHeight: '1', letterSpacing: 'tracking-tighter' }],
+        '9xl': ['clamp(8rem, 6rem + 6vw, 12rem)', { lineHeight: '0.9', letterSpacing: 'tracking-tighter' }],
       },
       spacing: {
         '0': '0',
-        '1': '0.25rem',
-        '2': '0.5rem',
-        '3': '0.75rem',
-        '4': '1rem',
-        '5': '1.25rem',
-        '6': '1.5rem',
-        '8': '2rem',
-        '10': '2.5rem',
-        '12': '3rem',
-        '16': '4rem',
-        '20': '5rem',
-        '24': '6rem',
-        '32': '8rem',
+        '1': '0.25rem',   /* 4px */
+        '2': '0.5rem',    /* 8px */
+        '3': '0.75rem',   /* 12px */
+        '4': '1rem',      /* 16px */
+        '5': '1.25rem',   /* 20px */
+        '6': '1.5rem',    /* 24px */
+        '8': '2rem',      /* 32px */
+        '10': '2.5rem',   /* 40px */
+        '12': '3rem',     /* 48px */
+        '16': '4rem',     /* 64px */
+        '20': '5rem',     /* 80px */
+        '24': '6rem',     /* 96px */
+        '32': '8rem',     /* 128px */
       },
       borderRadius: {
         'none': '0',
-        'sm': '0.25rem',
-        'md': '0.5rem',
-        'lg': '0.75rem',
-        'xl': '1rem',
-        '2xl': '1.5rem',
-        'full': '9999px',
       },
       boxShadow: {
-        'xs': '0 1px 2px rgba(0, 0, 0, 0.3)',
-        'sm': '0 2px 4px rgba(0, 0, 0, 0.4)',
-        'md': '0 4px 12px rgba(0, 0, 0, 0.45)',
-        'lg': '0 8px 24px rgba(0, 0, 0, 0.5)',
-        'xl': '0 16px 48px rgba(0, 0, 0, 0.55)',
-        '2xl': '0 24px 64px rgba(0, 0, 0, 0.6)',
-        'glow-primary': '0 0 20px rgba(192, 132, 252, 0.4), 0 0 40px rgba(192, 132, 252, 0.4)',
-        'glow-primary-strong': '0 0 30px rgba(192, 132, 252, 0.6), 0 0 60px rgba(192, 132, 252, 0.6)',
-        'glow-secondary': '0 0 20px rgba(34, 211, 238, 0.35), 0 0 40px rgba(34, 211, 238, 0.35)',
-        'glow-success': '0 0 20px rgba(103, 245, 164, 0.35), 0 0 40px rgba(103, 245, 164, 0.35)',
-        'glow-error': '0 0 20px rgba(251, 113, 133, 0.35), 0 0 40px rgba(251, 113, 133, 0.35)',
-        'glass': '0 4px 24px rgba(0, 0, 0, 0.4)',
-      },
-      backdropBlur: {
-        'glass': '20px',
-      },
-      backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #c084fc 0%, #22d3ee 100%)',
-        'gradient-primary-reverse': 'linear-gradient(135deg, #22d3ee 0%, #c084fc 100%)',
-        'gradient-subtle': 'linear-gradient(180deg, #0d0d12 0%, #101116 100%)',
-        'gradient-glass': 'linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
-        'gradient-radial-glow': 'radial-gradient(ellipse at center, rgba(192, 132, 252, 0.4) 0%, transparent 70%)',
-        'gradient-radial-glow-secondary': 'radial-gradient(ellipse at center, rgba(34, 211, 238, 0.35) 0%, transparent 70%)',
+        // No soft shadows - only hard offset shadow for hover
+        'none': '0 0 0 transparent',
       },
       transitionDuration: {
         'instant': '0ms',
         'fast': '150ms',
-        'normal': '250ms',
-        'slow': '350ms',
-        'slower': '500ms',
+        'normal': '200ms',
+        'slow': '300ms',
       },
       transitionTimingFunction: {
         'linear': 'linear',
-        'in': 'cubic-bezier(0.4, 0, 1, 1)',
-        'out': 'cubic-bezier(0, 0, 0.2, 1)',
-        'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
-        'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-        'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'out': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
       zIndex: {
         'base': '0',
-        'dropdown': '100',
-        'sticky': '200',
-        'fixed': '300',
-        'modal-backdrop': '400',
-        'modal': '500',
-        'popover': '600',
-        'tooltip': '700',
-        'toast': '800',
-        'max': '9999',
+        'sticky': '40',
+        'fixed': '50',
+        'modal': '600',
       },
       container: {
         center: true,
@@ -155,6 +111,6 @@ export default {
         },
       },
     },
+    plugins: [],
   },
-  plugins: [],
 }

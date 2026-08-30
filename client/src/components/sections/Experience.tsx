@@ -1,80 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { experiences } from '../../data/experience';
-import { HorizontalTimeline } from '../ui/HorizontalTimeline';
-import { VerticalTimeline } from '../ui/VerticalTimeline';
 
-export const Experience: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+const Experience: React.FC = () => {
 
   return (
     <section
       id="experience"
-      className="min-h-screen bg-bg-primary relative overflow-hidden px-4 sm:px-8 lg:px-16 py-20 lg:py-32"
+      className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 bg-[#F9F9F7] overflow-hidden sharp-corners"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent pointer-events-none" />
-
-      <motion.div
-        className="relative z-10 max-w-7xl mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div className="mb-12 lg:mb-20" variants={itemVariants}>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="text-sm font-mono text-accent-primary tracking-wider">05 / EXPERIENCE</div>
-            <div className="h-px flex-grow bg-gradient-to-r from-accent-primary to-transparent max-w-xs" />
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
-            THE PATH SO FAR.
-          </h2>
-          <p className="text-lg text-text-secondary max-w-2xl">
-            A journey through roles, projects, and continuous learning.
-          </p>
-        </motion.div>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#111111]/20 bg-[#CC0000]/20 text-[#CC0000] tracking-widest uppercase text-xs mb-8">
+          05 / EXPERIENCE
+        </div>
 
-        {/* Timeline Container */}
-        <motion.div variants={itemVariants}>
-          {isMobile ? (
-            <VerticalTimeline experiences={experiences} />
-          ) : (
-            <HorizontalTimeline experiences={experiences} />
-          )}
-        </motion.div>
-      </motion.div>
+        <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111111] leading-tight mb-8">
+          THE PATH SO FAR.
+        </h2>
+
+        <p className="text-base md:text-lg text-[#737373] leading-relaxed mb-12 max-w-2ul">
+          A journey through roles, projects, and continuous learning.
+        </p>
+
+        {/* Experience Cards */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {experiences.map((exp) => (
+            <div
+              key={exp.id}
+              className="border border-[#111111] rounded-none p-6 lg:p-12 hover:bg-[#F5F5F5] transition-colors sharp-corners"
+            >
+              <h3 className="font-serif text-xl font-bold text-[#111111] mb-2">
+                {exp.role}
+              </h3>
+              <p className="text-sm text-[#737373] mb-3">
+                {exp.company}
+              </p>
+              <p className="text-sm text-[#737373]">
+                {exp.duration || 'Ongoing'}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
+
+export default Experience;

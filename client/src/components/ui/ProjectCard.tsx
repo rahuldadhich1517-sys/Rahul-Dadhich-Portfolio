@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
   // 3D tilt effect on desktop only (disabled on touch devices)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile) return;
-    
+
     // Check if device supports hover (not touch)
     if (window.matchMedia('(hover: none)').matches) return;
 
@@ -62,57 +62,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={`grid gap-6 md:gap-10 items-center ${
-        isAlternate ? 'md:grid-cols-2 md:[direction:rtl]' : 'md:grid-cols-2'
-      }`}
+      className={`grid gap-6 md:gap-10 items-center ${isAlternate ? 'md:grid-cols-2 md:[direction:rtl]' : 'md:grid-cols-2'}` }
     >
       {/* Content side */}
       <div className="flex flex-col justify-between">
         {/* Project number */}
         <div className="mb-6">
-          <span className="text-6xl md:text-7xl font-bold text-accent-primary/20 leading-none">
+          <span className="text-6xl md:text-7xl font-bold text-[#111111] leading-none">
             {String(index + 1).padStart(2, '0')}
           </span>
         </div>
 
         {/* Title */}
         <div className="mb-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">
+          <h3 className="text-3xl md:text-4xl font-bold text-[#111111] mb-2">
             {project.title}
           </h3>
           <div className="flex items-center gap-2">
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold text-accent-primary border border-accent-primary/30 bg-accent-primary/5"
+              className="px-3 py-1 rounded text-xs font-semibold text-[#CC0000] border border-[#111111]/30 bg-[#F9F9F7]"
             >
               {project.category}
             </span>
             {project.year && (
-              <span className="text-xs text-text-muted">{project.year}</span>
+              <span className="text-xs text-[#737373]">{project.year}</span>
             )}
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-text-secondary leading-relaxed mb-6 max-w-lg">
+        <p className="text-[#737373] leading-relaxed mb-6 max-w-lg">
           {project.description}
         </p>
 
         {/* Technologies */}
         <div className="mb-8">
-          <p className="text-xs text-text-muted uppercase tracking-widest mb-3">
+          <p className="text-xs text-[#737373] uppercase tracking-widest mb-3">
             Technologies Used
           </p>
           <div className="flex flex-wrap gap-2">
             {project.technologies.slice(0, 5).map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-lg text-xs bg-accent-primary/10 text-accent-primary border border-accent-primary/20 font-medium"
+                className="px-3 py-1 rounded text-xs text-[#CC0000] border border-[#111111]/30 bg-[#F9F9F7] font-medium"
               >
                 {tech}
               </span>
             ))}
             {project.technologies.length > 5 && (
-              <span className="px-3 py-1 text-xs text-text-muted">
+              <span className="px-3 py-1 text-xs text-[#737373]">
                 +{project.technologies.length - 5} more
               </span>
             )}
@@ -123,7 +121,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
         <div className="flex gap-4 flex-wrap">
           <Link
             to={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-primary text-bg-primary font-semibold hover:bg-accent-primary/90 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#111111] text-[#111111] font-semibold hover:bg-[#F9F9F7] transition-all duration-200"
           >
             View Case Study
             <ArrowUpRight size={18} />
@@ -133,7 +131,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-accent-primary/50 text-accent-primary font-semibold hover:border-accent-primary hover:bg-accent-primary/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#111111]/50 text-[#737373] font-semibold hover:border-[#111111] hover:text-[#111111] transition-all duration-200"
             >
               Live Demo
               <ArrowUpRight size={18} />
@@ -142,12 +140,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
         </div>
       </div>
 
-      {/* Image side - with 3D tilt */}
+      {/* Image side - with hard shadow hover effect */}
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative h-80 md:h-96 rounded-xl overflow-hidden group"
+        className="relative h-80 md:h-96 overflow-hidden group sharp-corners"
         style={{
           perspective: '1000px',
           transform: isMobile
@@ -156,51 +154,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isMobile = fa
           transition: !isMobile ? 'transform 0.1s ease-out' : 'none',
         }}
       >
-        {/* Background gradient */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background: 'linear-gradient(135deg, var(--color-accent-primary-glow) 0%, var(--color-accent-secondary-glow) 100%)',
-          }}
-        />
-
         {/* Image */}
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
           onLoad={() => setIsImageLoaded(true)}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover grayscale transition-filter duration-300 group-hover:grayscale group-hover:sepia-[50%]"
           style={{
             opacity: isImageLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease-out',
           }}
         />
 
-        {/* Loading placeholder */}
-        {!isImageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 to-accent-primary/5 animate-pulse" />
-        )}
-
-        {/* Overlay on hover */}
+        {/* Hard shadow hover effect */}
         <div
-          className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10"
+          className="absolute inset-0 hard-shadow-hover"
           style={{
             boxShadow: 'inset 0 0 30px transparent',
           }}
         />
 
-        {/* Glow effect on hover */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-5"
-          style={{
-            boxShadow: 'inset 0 0 40px var(--color-accent-primary-glow)',
-          }}
-        />
-
         {/* Featured badge */}
         {project.featured && (
-          <div className="absolute top-4 right-4 z-20 px-3 py-1 bg-accent-primary/20 border border-accent-primary rounded-full text-xs font-semibold text-accent-primary backdrop-blur-sm">
+          <div className="absolute top-4 right-4 px-3 py-1 border border-[#111111] text-[#CC0000] font-semibold text-xs uppercase tracking-wider">
             Featured
           </div>
         )}

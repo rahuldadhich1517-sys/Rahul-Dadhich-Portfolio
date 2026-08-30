@@ -28,26 +28,7 @@ const MOBILE_NAV_ITEMS: NavItem[] = [
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Scroll detection with passive listener for performance
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu on resize to desktop
   useEffect(() => {
@@ -77,16 +58,13 @@ export function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-  // Trap focus in mobile menu
-
   return (
     <>
       {/* Desktop Navbar */}
       <nav
-        className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}
+        className="navbar"
         role="navigation"
         aria-label="Main navigation"
-        onKeyDown={handleKeyDown}
       >
         <div className="navbar__inner">
           {/* Logo */}
