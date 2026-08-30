@@ -13,7 +13,7 @@ import { Contact } from './components/sections/Contact';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#F9F9F7] text-[#111111] flex flex-col">
+      <div className="min-h-screen bg-background text-foreground flex flex-col sharp-corners">
         <Navbar />
         <main className="flex-1">
           <Hero />
