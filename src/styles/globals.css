@@ -39,7 +39,7 @@ body { margin: 0; color: var(--color-text-primary); background: var(--color-bg-p
 .border-border-primary { border-color: var(--color-border-primary); }
 .rounded-none { border-radius: 0; }
 @media (max-width: 767px) { .desktop-only { display: none !important; } }
-@media (min-width: 768px) { .mobile-only { display: none !important; } }
+@media (min-width: 768px) { .mobile-only { display: none; } }
 @media (min-width: 768px) { .md\:col-span-7 { grid-column: span 7 / span 7; } .md\:col-span-5 { grid-column: span 5 / span 5; } }
 @media (min-width: 1024px) { .lg\:text-7xl { font-size: 4.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }

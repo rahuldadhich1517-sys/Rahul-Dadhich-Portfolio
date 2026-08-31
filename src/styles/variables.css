@@ -17,6 +17,8 @@
   --section-padding-x: clamp(1.25rem, 4vw, 5rem);
   --section-padding-y: clamp(4rem, 9vw, 9rem);
   --container-xl: 1440px;
+  --z-modal: 600;
+  --z-modal-backdrop: 500;
   --hard-shadow: 5px 5px 0 #171717;
   --duration-fast: 160ms;
   --duration-normal: 260ms;
