@@ -101,7 +101,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="navbar__cta desktop-only" aria-hidden={isMobileMenuOpen}>
             <motion.a
-              href="/Resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download="Resume.pdf"
               className="btn btn--primary btn--sm navbar__btn"
               whileHover={{ y: -2 }}
